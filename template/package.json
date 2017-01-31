@@ -1,11 +1,11 @@
 {
   "name": "{{ name }}",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "{{ description }}",
   "author": "{{ author }}",
   "private": true,
   "scripts": {
-    "dev": "nodemon -w server.js -w nuxt.config.js -w api/ server.js",
+    "dev": "node --harmony-async-await server.js",
     "build": "nuxt build",
     "start": "NODE_ENV=production node server.js",
     "precommit": "npm run lint",
@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
-    "express": "^4.14.0",
+    "micro": "^6.2.1",
     "nuxt": "latest"
   },
   "devDependencies": {

@@ -1,12 +1,8 @@
 const Nuxt = require('nuxt')
-const app = require('express')()
-const server = require('http').createServer(app)
-const host = process.env.HOST || '127.0.0.1'
+const micro = require('micro')
+const {send} = require('micro')
+const host = process.env.HOST || 'localhost'
 const port = process.env.PORT || '3000'
-
-app.set('port', port)
-// Import API Routes
-app.use('/api', require('./api/index'))
 
 // Import and Set Nuxt.js options
 let config = require('./nuxt.config.js')
@@ -14,7 +10,6 @@ config.dev = !(process.env.NODE_ENV === 'production')
 
 // Init Nuxt.js
 const nuxt = new Nuxt(config)
-app.use(nuxt.render)
 
 // Build only in dev mode
 if (config.dev) {
@@ -24,6 +19,12 @@ if (config.dev) {
     process.exit(1)
   })
 }
+const serviceConfig = async function(req, res) {
+  // at least serves static 404
+  //send(res, 200, `talkin' Δ micro heavy`)
+  await nuxt.render(req, res)
+}
+const server = micro(serviceConfig)
 
 // Listen the server
 server.listen(port, host)
