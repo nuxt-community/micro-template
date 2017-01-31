@@ -1,7 +1,7 @@
 {{{{raw}}}}
 <template>
   <section class="container">
-    <img src="../assets/img/logo.png" alt="Nuxt.js Logo" class="logo" />
+    <img src="../assets/img/NuxtMicro.png" alt="Nuxt.js Logo" class="logo" />
     <h1 class="title">
       USERS
     </h1>
@@ -21,9 +21,9 @@ import axios from '~plugins/axios'
 
 export default {
   async data () {
-    let { data } = await axios.get('/api/users')
+    // let { data } = await axios.get('/api/users')
     return {
-      users: data
+      users: {}
     }
   },
   head () {
