@@ -1,4 +1,4 @@
-<p align="center"><img src="https://cloud.githubusercontent.com/assets/904724/22470179/b84f58d8-e7ce-11e6-995b-0933711ca566.png"></p>
+<p align="center"><img src="https://cloud.githubusercontent.com/assets/4921147/22486717/eb75cf62-e80a-11e6-8564-09a42e374034.png></p>
 
 
 # Nuxt.js with Express
