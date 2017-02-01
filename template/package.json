@@ -1,9 +1,9 @@
 {
-  "name": "{{ name }}",
-  "version": "0.0.1",
-  "description": "{{ description }}",
-  "author": "{{ author }}",
-  "private": true,
+  "name": "local-nuxt-micro",
+  "version": "0.0.3",
+  "description": "Nuxt.js + Δ micro project",
+  "author": "vuchl <vuchl@gmx.de>",
+  "private": false,
   "scripts": {
     "dev": "node --harmony-async-await server.js",
     "build": "nuxt build",
@@ -14,6 +14,7 @@
   "dependencies": {
     "axios": "^0.15.3",
     "micro": "^6.2.1",
+    "micro-route": "^2.2.0",
     "nuxt": "latest"
   },
   "devDependencies": {

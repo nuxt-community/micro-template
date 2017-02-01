@@ -2,6 +2,8 @@ const Nuxt = require('nuxt')
 const {send} = require('micro')
 const micro = require('micro')
 const url = require('url')
+const dispatch = require('micro-route/dispatch')
+
 const host = process.env.HOST || 'localhost'
 const port = process.env.PORT || '3000'
 
@@ -22,21 +24,14 @@ if (config.dev) {
     process.exit(1)
   })
 }
+
+// setup the microservice includinng intercepted routing
 const serviceConfig = async function(req, res) {
-  let urlPath = url.parse(req.url).path
-  console.log(urlPath)
-  let split = urlPath.split('/')
-  // console.log(split)
-  let possibleId = parseInt(urlPath.split('/')[urlPath.split('/').length -1], 10)
-  console.log(possibleId)
-  if(urlPath.indexOf('/api/users') == 0 && isNaN(possibleId)) {
-    send(res, 200, await getUsers())
-  } else if (urlPath.indexOf('/api/users') == 0 && Number.isInteger(possibleId)) {
-    let user = await getUser(possibleId)
-    send(res, 200, user)
-  } else {
-    await nuxt.render(req, res)
-  }
+  await dispatch()
+    .dispatch('/api/users/:id', ['GET'], async (req, res, {params, query}) => send(res, 200, await getUser(params.id)))
+    .dispatch('/api/users', ['GET'], async(req, res) => send(res, 200, await getUsers()))
+    .dispatch('*', ['GET'], async (req, res) => await nuxt.render(req, res))
+    (req, res)
 }
 const server = micro(serviceConfig)
 
