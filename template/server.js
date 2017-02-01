@@ -1,8 +1,11 @@
 const Nuxt = require('nuxt')
-const micro = require('micro')
 const {send} = require('micro')
+const micro = require('micro')
+const url = require('url')
 const host = process.env.HOST || 'localhost'
 const port = process.env.PORT || '3000'
+
+const {getUser, getUsers} = require('./api/')
 
 // Import and Set Nuxt.js options
 let config = require('./nuxt.config.js')
@@ -20,9 +23,20 @@ if (config.dev) {
   })
 }
 const serviceConfig = async function(req, res) {
-  // at least serves static 404
-  //send(res, 200, `talkin' Δ micro heavy`)
-  await nuxt.render(req, res)
+  let urlPath = url.parse(req.url).path
+  console.log(urlPath)
+  let split = urlPath.split('/')
+  // console.log(split)
+  let possibleId = parseInt(urlPath.split('/')[urlPath.split('/').length -1], 10)
+  console.log(possibleId)
+  if(urlPath.indexOf('/api/users') == 0 && isNaN(possibleId)) {
+    send(res, 200, await getUsers())
+  } else if (urlPath.indexOf('/api/users') == 0 && Number.isInteger(possibleId)) {
+    let user = await getUser(possibleId)
+    send(res, 200, user)
+  } else {
+    await nuxt.render(req, res)
+  }
 }
 const server = micro(serviceConfig)
 

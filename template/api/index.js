@@ -1,6 +1,14 @@
-var router = require('express').Router()
+const users = require('./users.js')
 
-// Add USERS Routes
-router.use(require('./users'))
+exports.getUser = async (id) => {
+  let allUsers = await users
+  if(id  >= 0 && id < allUsers.length) {
+    let user = allUsers[id]
+    return user
+  }
+  return null
+}
 
-module.exports = router
+exports.getUsers = async () => {
+  return await users
+}
