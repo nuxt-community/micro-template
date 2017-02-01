@@ -10,7 +10,7 @@
 This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
 
 ```bash
-vue init vuchl/express <project-name>
+vue init vuchl/nuxt-micro-template <project-name>
 cd <project-name> # move to your project
 npm install # or yarn install
 ```
