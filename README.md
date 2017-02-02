@@ -25,12 +25,12 @@ npm install # or yarn install
 | npm run build | Build the nuxt.js web application for production. |
 | npm start | Start micro server in production. |
 
-<!--## Live Demo
+## Live Demo
 
-[https://express.nuxtjs.org](https://express.nuxtjs.org)
+[https://nuxt-micro.now.sh](https://nuxt-micro.now.sh)
 
-now.sh
--->
+And to see the source code visti [https://nuxt-micro.now.sh/_src](https://nuxt-micro.now.sh/_src)
+
 ## Documentation
 
 - [micro](https://github.com/zeit/micro)
