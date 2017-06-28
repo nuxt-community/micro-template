@@ -1,20 +1,20 @@
 {
   "name": "local-nuxt-micro",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Nuxt.js + Δ micro project",
   "author": "vuchl <vuchl@gmx.de>",
   "private": false,
   "scripts": {
-    "dev": "node --harmony-async-await server.js",
+    "dev": "node server.js",
     "build": "nuxt build",
     "start": "NODE_ENV=production node server.js",
     "precommit": "npm run lint",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
-    "axios": "^0.15.3",
-    "micro": "^6.2.1",
-    "micro-route": "^2.2.0",
+    "axios": "^0.16.x",
+    "micro": "^7.3.x",
+    "micro-route": "^2.4.0",
     "nuxt": "latest"
   },
   "devDependencies": {
@@ -25,5 +25,8 @@
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^2.0.1",
     "nodemon": "^1.11.0"
+  },
+  "engines": {
+    "node": ">8.1.x"
   }
 }

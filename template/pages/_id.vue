@@ -1,4 +1,3 @@
-{{{{raw}}}}
 <template>
   <section class="container">
     <img src="../assets/img/NuxtMicro.png" alt="Nuxt.js Logo" class="logo" />
@@ -13,20 +12,24 @@
     </nuxt-link>
   </section>
 </template>
-{{{{/raw}}}}
 
 <script>
 import axios from '~plugins/axios'
 
 export default {
   name: 'id',
-  data ({ params, error }) {
-    return axios.get('/api/users/' + params.id)
+  data () {
+    return {
+      user: {}
+    }
+  },
+  asyncData (context) {
+    return axios.get('/api/users/' + context.params.id)
     .then((res) => {
       return { user: res.data }
     })
     .catch((e) => {
-      error({ statusCode: 404, message: 'User not found' })
+      context.error({ statusCode: 404, message: 'User not found' })
     })
   },
   head () {

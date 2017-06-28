@@ -1,6 +1,6 @@
-# {{ name }}
+# nm2
 
-> {{ description }}
+> Nuxt.js + Δ micro project
 
 ## Build Setup
 

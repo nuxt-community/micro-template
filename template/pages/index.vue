@@ -1,4 +1,3 @@
-{{{{raw}}}}
 <template>
   <section class="container">
     <img src="../assets/img/NuxtMicro.png" alt="Nuxt.js Logo" class="logo" />
@@ -7,24 +6,27 @@
     </h1>
     <ul class="users">
       <li v-for="(user, index) in users" class="user">
-        <nuxt-link :to="{ name: 'id', params: { id: index }}">
+        <nuxt-link :to="{ name: 'id', params: { id: index }}" class="button">
           {{ user.name }}
         </nuxt-link>
       </li>
     </ul>
   </section>
 </template>
-{{{{/raw}}}}
 
 <script>
 import axios from '~plugins/axios'
 
 export default {
-  async data () {
-    let { data } = await axios.get('/api/users')
+  data () {
     return {
-      users: data
+      users: []
     }
+  },
+  asyncData (context) {
+    return axios.get('/api/users').then((res) => {
+      return {users: res.data}
+    })
   },
   head () {
     return {
