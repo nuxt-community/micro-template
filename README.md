@@ -33,7 +33,7 @@ npm install # or yarn install
 
 [https://nuxt-micro.now.sh](https://nuxt-micro.now.sh)
 
-And to see the source code visti [https://nuxt-micro.now.sh/_src](https://nuxt-micro.now.sh/_src)
+And to see the source code visit [https://nuxt-micro.now.sh/_src](https://nuxt-micro.now.sh/_src)
 
 ## Documentation
 
