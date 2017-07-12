@@ -7,7 +7,7 @@
 
 ## Origins
 
-I had to detach this repo from it's ancestor [`nuxt-express`](https://github.com/nuxt-community/express-template) to be able to add it to the [`nuxt-community`](https://github.com/nuxt-community) so basically all credit goes to them. I just swapped `express` with `micro`. 
+The repo had to be detached from it's ancestor [`nuxt-express`](https://github.com/nuxt-community/express-template) to be able to add it to the [`nuxt-community`](https://github.com/nuxt-community) so basically all credit goes to them. It was just swapping `express` with `micro`. 
 
 ## Installation
 
