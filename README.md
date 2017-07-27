@@ -14,7 +14,7 @@ The repo had to be detached from it's ancestor [`nuxt-express`](https://github.c
 This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
 
 ```bash
-vue init vuchl/nuxt-micro-template <project-name>
+vue init nuxt-community/micro-template <project-name>
 cd <project-name> # move to your project
 npm install # or yarn install
 ```
