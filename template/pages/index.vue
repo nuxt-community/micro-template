@@ -1,6 +1,7 @@
+{{{{raw}}}}
 <template>
   <section class="container">
-    <img src="../assets/img/NuxtMicro.png" alt="Nuxt.js Logo" class="logo" />
+    <img src="~assets/img/NuxtMicro.png" alt="Nuxt.js Logo" class="logo" />
     <h1 class="title">
       USERS
     </h1>
@@ -13,9 +14,9 @@
     </ul>
   </section>
 </template>
-
+{{{{/raw}}}}
 <script>
-import axios from '~plugins/axios'
+import axios from '~/plugins/axios'
 
 export default {
   data () {
@@ -23,10 +24,9 @@ export default {
       users: []
     }
   },
-  asyncData (context) {
-    return axios.get('/api/users').then((res) => {
-      return {users: res.data}
-    })
+  async asyncData () {
+    const {data} = await axios.get('/api/users')
+    return {users: data}
   },
   head () {
     return {
