@@ -1,4 +1,5 @@
 const users = require('./users.js')
+const { createError } = require('micro')
 
 exports.getUser = async (id) => {
   let allUsers = await users
@@ -6,7 +7,7 @@ exports.getUser = async (id) => {
     let user = allUsers[id]
     return user
   }
-  return null
+  throw createError(404, 'User not found')
 }
 
 exports.getUsers = async () => {

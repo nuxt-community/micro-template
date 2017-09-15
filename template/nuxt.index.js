@@ -1,19 +1,15 @@
-const Nuxt = require('nuxt')
+// Require Nuxt And Builder modules
+const { Nuxt, Builder } = require('nuxt')
 
-// Import and Set Nuxt.js options
-let config = require('./nuxt.config.js')
-config.dev = !(process.env.NODE_ENV === 'production')
+// Require nuxt config
+const config = require('./nuxt.config.js')
 
-// Init Nuxt.js
+// Create a new nuxt instance
 const nuxt = new Nuxt(config)
 
-// Build only in dev mode
-if (config.dev) {
-  nuxt.build()
-  .catch((error) => {
-    console.error(error) // eslint-disable-line no-console
-    process.exit(1)
-  })
+// Enable live build & reloading on dev
+if (nuxt.options.dev) {
+  new Builder(nuxt).build()
 }
 
 module.exports = nuxt

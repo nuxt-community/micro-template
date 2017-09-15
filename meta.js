@@ -21,5 +21,5 @@ module.exports = {
       'message': 'Author'
     },
   },
-  completeMessage: '{{#inPlace}}To get started:\n\n  npm install # Or yarn\n  npm run dev{{else}}To get started:\n\n  cd {{destDirName}}\n  npm install # Or yarn\n  npm run dev{{/inPlace}}'
+  completeMessage: '{{#inPlace}}To get started:\n\n  npm install # Or yarn\n  npm run dev # Or yarn dev{{else}}To get started:\n\n  cd {{destDirName}}\n  npm install # Or yarn\n  npm run dev # Or yarn dev{{/inPlace}}'
 };

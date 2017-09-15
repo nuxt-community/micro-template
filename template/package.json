@@ -1,9 +1,9 @@
 {
-  "name": "local-nuxt-micro",
-  "version": "0.0.4",
-  "description": "Nuxt.js + Δ micro project",
-  "author": "vuchl <vuchl@gmx.de>",
-  "private": false,
+  "name": "{{ name }}",
+  "version": "0.0.0",
+  "description": "{{ description }}",
+  "author": "{{ author }}",
+  "private": true,
   "scripts": {
     "dev": "node server.js",
     "build": "nuxt build",
@@ -13,17 +13,17 @@
   },
   "dependencies": {
     "axios": "^0.16.x",
-    "micro": "^7.3.x",
+    "micro": "^9.0.0",
     "micro-route": "^2.4.0",
-    "nuxt": "latest"
+    "nuxt": "1.0.0-rc11"
   },
   "devDependencies": {
-    "babel-eslint": "^7.1.1",
-    "eslint": "^3.13.1",
-    "eslint-config-standard": "^6.2.1",
-    "eslint-plugin-html": "^1.7.0",
+    "babel-eslint": "^8.0.0",
+    "eslint": "^4.6.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-html": "^3.2.1",
     "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-standard": "^2.0.1",
+    "eslint-plugin-standard": "^3.0.1",
     "nodemon": "^1.11.0"
   },
   "engines": {

@@ -1,6 +1,7 @@
+{{{{raw}}}}
 <template>
   <section class="container">
-    <img src="../assets/img/NuxtMicro.png" alt="Nuxt.js Logo" class="logo" />
+    <img src="~assets/img/NuxtMicro.png" alt="Nuxt.js Logo" class="logo" />
     <h1 class="title">
       User
     </h1>
@@ -12,9 +13,9 @@
     </nuxt-link>
   </section>
 </template>
-
+{{{{/raw}}}}
 <script>
-import axios from '~plugins/axios'
+import axios from '~/plugins/axios'
 
 export default {
   name: 'id',
@@ -23,14 +24,13 @@ export default {
       user: {}
     }
   },
-  asyncData (context) {
-    return axios.get('/api/users/' + context.params.id)
-    .then((res) => {
-      return { user: res.data }
-    })
-    .catch((e) => {
-      context.error({ statusCode: 404, message: 'User not found' })
-    })
+  async asyncData (context) {
+    try {
+      const { data } = await axios.get('/api/users/' + context.params.id)
+      return { user: data }
+    } catch (e) {
+      context.error({ statusCode: e.response.status, message: e.response.data })
+    }
   },
   head () {
     return {
