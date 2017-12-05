@@ -1,7 +1,7 @@
 const micro = require('micro')
 
 const host = process.env.HOST || 'localhost'
-const port = process.env.PORT || '3000'
+const port = process.env.PORT || 3000
 
 // setup the microservice includinng intercepted routing
 const serviceConfig = require('./micro.config.js')
