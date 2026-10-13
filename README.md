@@ -1,3 +1,6 @@
+> [!NOTE]
+> This repository is archived. This template was built for Nuxt 2, which reached end of life on June 30, 2024.
+
 <p align="center"><img src="https://cloud.githubusercontent.com/assets/4921147/22486717/eb75cf62-e80a-11e6-8564-09a42e374034.png"></p>
 
 
